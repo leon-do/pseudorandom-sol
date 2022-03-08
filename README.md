@@ -11,7 +11,7 @@ contract Pseudorandom {
    * @return a pseudorandom value
    */
   function random() public view returns (uint256) {
-    // require(msg.sender == tx.origin, "no smart contracts allowed");
+    // require(msg.sender == tx.origin, "caller can never be a contract");
     return uint256(keccak256(abi.encodePacked(
       tx.origin,
       blockhash(block.number - 1),
